@@ -21,14 +21,14 @@ The result is a faster and more efficient way of processing large quantities of 
  == Usage == 
 
 Example 1 - Hello world:  
-```  
+```php  
 // an array of URL's to fetch
 $urls = array("http://www.google.com",
               "http://www.facebook.com",
               "http://www.yahoo.com");
 ```  
 
-```  
+```php  
 // a function that will process the returned responses
 function request_callback($response, $info) {
 	// parse the page title out of the returned HTML
