@@ -20,13 +20,15 @@ The result is a faster and more efficient way of processing large quantities of 
 
  == Usage == 
 
-Example 1 - Hello world:
-
+Example 1 - Hello world:  
+```  
 // an array of URL's to fetch
 $urls = array("http://www.google.com",
               "http://www.facebook.com",
               "http://www.yahoo.com");
+```  
 
+```  
 // a function that will process the returned responses
 function request_callback($response, $info) {
 	// parse the page title out of the returned HTML
@@ -37,7 +39,9 @@ function request_callback($response, $info) {
 	print_r($info);
 	echo "<hr>";
 }
+```  
 
+```  
 // create a new RollingCurl object and pass it the name of your custom callback function
 $rc = new RollingCurl("request_callback");
 // the window size determines how many simultaneous requests to allow.  
@@ -49,7 +53,7 @@ foreach ($urls as $url) {
 }
 $rc->execute();
 
-
+```  
 
 
 
