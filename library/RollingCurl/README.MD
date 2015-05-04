@@ -26,9 +26,7 @@ Example 1 - Hello world:
 $urls = array("http://www.google.com",
               "http://www.facebook.com",
               "http://www.yahoo.com");
-```  
 
-```php  
 // a function that will process the returned responses
 function request_callback($response, $info) {
 	// parse the page title out of the returned HTML
@@ -39,9 +37,7 @@ function request_callback($response, $info) {
 	print_r($info);
 	echo "<hr>";
 }
-```  
 
-```  
 // create a new RollingCurl object and pass it the name of your custom callback function
 $rc = new RollingCurl("request_callback");
 // the window size determines how many simultaneous requests to allow.  
@@ -60,7 +56,7 @@ $rc->execute();
 Example 2 - Setting custom options:
 
 Set custom options for EVERY request:
-
+```php
 $rc = new RollingCurl("request_callback");
 $rc->options = array(CURLOPT_HEADER => true, CURLOPT_NOBODY => true); 
 $rc->execute();
@@ -72,19 +68,21 @@ $request = new Request($url);
 $request->options = array(CURLOPT_HEADER => true, CURLOPT_NOBODY => true); 
 $rc->add($request);
 $rc->execute();
-
+```  
 
 
 
 Example 3 - Shortcuts:
-
+```php
 $rc = new RollingCurl("request_callback");
 $rc->get("http://www.google.com");
 $rc->get("http://www.yahoo.com");
 $rc->execute();
+```  
 
 Example 4 - Class callbacks:
 
+```php
 class MyInfoCollector {
     private $rc;
 
@@ -110,5 +108,6 @@ $collector->run(array(
     'http://google.com/',
     'http://yahoo.com/'
 ));
+```  
 
 $Id$
